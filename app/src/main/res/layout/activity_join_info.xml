@@ -13,12 +13,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="100dp"
-        android:hint="Nick name"
+        android:hint="닉네임"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
         android:id="@+id/join_info_login_button"
-        android:text="Register Succeed!"
+        android:text="회원가입 완료"
         android:textColor="#ffffff"
         android:textSize="15dp"
         android:layout_width="match_parent"

@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
-    private  lateinit var auth : FirebaseAuth
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,24 +23,29 @@ class LoginActivity : AppCompatActivity() {
 
 
             auth.signInWithEmailAndPassword(email_area.text.toString(), password_area.text.toString())
-                .addOnCompleteListener(this) { task ->
+                .addOnCompleteListener(this){task ->
 
-                    if(task.isSuccessful) {
+                    if(task.isSuccessful){
 
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
 
-                    } else {
+                    }else {
 
                         Toast.makeText(this, "fail", Toast.LENGTH_LONG).show()
 
                     }
+
                 }
+
         }
 
-        join_button.setOnClickListener{
+        join_button.setOnClickListener {
+
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
+
+
         }
 
     }

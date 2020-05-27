@@ -22,24 +22,31 @@ class JoinInfoActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
         join_info_login_button.setOnClickListener {
 
             val user = hashMapOf(
 
                 "nickname" to join_info_email_area.text.toString()
+
             )
 
             db.collection("users")
                 .document(auth.currentUser?.uid.toString())
                 .set(user)
                 .addOnSuccessListener {
-                    Log.e("JoinInfoActivity", "Success")
+                    Log.e("JoinInfoActivity", "성공")
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+
                 }
-                .addOnSuccessListener { Log.e("JoinInfoActivity", "Failure") }
+                .addOnFailureListener { Log.e("JoinInfoActivity", "실패") }
+
+
+
         }
 
     }
 }
+

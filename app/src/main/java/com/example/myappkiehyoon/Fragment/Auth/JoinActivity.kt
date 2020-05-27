@@ -18,24 +18,23 @@ class JoinActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        join_login_button.setOnClickListener{
+        join_login_button.setOnClickListener {
 
 
-        auth.createUserWithEmailAndPassword(join_email_area.text.toString(), join_email_area.text.toString())
-            .addOnCompleteListener(this) { task ->
+            auth.createUserWithEmailAndPassword(join_email_area.text.toString(), join_password_area.text.toString())
+                .addOnCompleteListener(this){task ->
 
-                if(task.isSuccessful) {
-                    val intent = Intent(this, JoinActivity::class.java)
-                    startActivity(intent)
+                    if (task.isSuccessful) {
 
-                } else {
+                        val intent = Intent(this, JoinInfoActivity::class.java)
+                        startActivity(intent)
 
-                    Toast.makeText(this, "failed", Toast.LENGTH_LONG).show()
+                        } else {
+
+                        Toast.makeText(this, "fail", Toast.LENGTH_LONG).show()
+
                 }
-
-
             }
         }
-
     }
 }
