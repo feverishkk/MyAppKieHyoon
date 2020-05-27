@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.example.myappkiehyoon.ContentsListModel
 import com.example.myappkiehyoon.Fragment.MarketInfo.MarketInfoActivity
 import com.example.myappkiehyoon.R
+import com.example.myappkiehyoon.Utils.FirebaseUtils
 import kotlinx.android.synthetic.main.fragment_first.view.*
 
 /**
@@ -41,9 +42,43 @@ class FirstFragment : Fragment() {
         val list_adapter = FirstFragAdapter(requireContext(), list_array)
         view.listview_first_fragment.adapter = list_adapter
 
+
+        FirebaseUtils.db
+            .collection("zzim")
+            .document(FirebaseUtils.getUid())
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+
+                if (documentSnapshot.exists() == true) {
+                    //Data 필드가 있을 때
+                } else {
+                    //Data 필드가 없을 때
+                    val korean = hashMapOf(
+                        "Lang1" to "",
+                        "Lang2" to "",
+                        "Lang3" to "",
+                        "Lang4" to "",
+                        "Lang5" to "",
+                        "Lang6" to "",
+                        "Lang7" to "",
+                        "Lang8" to "",
+                        "Lang9" to ""
+
+                    )
+                    FirebaseUtils.db
+                        .collection("zzim")
+                        .document(FirebaseUtils.getUid())
+                        .set(korean)
+                        .addOnSuccessListener {  }
+                        .addOnFailureListener {  }
+                }
+            }
+
+
         view.listview_first_fragment.setOnItemClickListener{ adapterView, view, i, l ->
 
             val intent = Intent(requireContext(), MarketInfoActivity::class.java)
+            intent.putExtra("title",list_array.get(i).title)
             startActivity(intent)
         }
 
