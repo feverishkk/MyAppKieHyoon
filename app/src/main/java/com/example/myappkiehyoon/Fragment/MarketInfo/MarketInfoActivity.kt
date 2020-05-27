@@ -14,8 +14,8 @@ import java.lang.reflect.TypeVariable
 
 class MarketInfoActivity : AppCompatActivity() {
 
-    private val auth : FirebaseAuth = FirebaseAuth.getInstance()
-    private val db   : FirebaseFirestore =  FirebaseFirestore.getInstance()
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,27 +23,34 @@ class MarketInfoActivity : AppCompatActivity() {
 
         lecture_text.text = intent.getStringExtra("title")
 
-        //
+        //찜 여부 확인
 
         FirebaseUtils.db
             .collection("zzim")
             .document(FirebaseUtils.getUid())
             .get()
-            .addOnSuccessListener { documentSnapshot ->
-                if(documentSnapshot.get(intent.getStringExtra("title"))==true) {
+            .addOnSuccessListener {documentSnapshot ->
 
-                    header_zzim.text ="♥Favourite♥"
-                    header_zzim.setTextColor(Color.GREEN)
+                if(documentSnapshot.get(intent.getStringExtra("title")) == true){
+
+                    header_zzim.text= "하트뿅뿅 찜 되었습니다."
+                    header_zzim.setTextColor(Color.BLUE)
+
                 }
+
+
             }
+            .addOnFailureListener {  }
 
 
         zzim.setOnClickListener {
 
-            //이미 찜 되어 있을 때
-            if(header_zzim.text.equals("Dib Done♥")) {
 
-                header_zzim.text = ""
+            //이미 찜 되어있을 떄
+            if (header_zzim.text.equals("하트뿅뿅 찜 되었습니다.")){
+
+
+                header_zzim.text= "하트뿅뿅 찜"
                 header_zzim.setTextColor(Color.RED)
 
                 FirebaseUtils.db
@@ -51,15 +58,16 @@ class MarketInfoActivity : AppCompatActivity() {
                     .document(FirebaseUtils.getUid())
                     .update(intent.getStringExtra("title"), "")
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this,"Failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "실패", Toast.LENGTH_LONG).show()
                     }
 
+            } else {
+                //이미 찜 되어있지 않을 때
 
-            } else {  // 이미 찜 되어있지 않을 때
-                header_zzim.text = "♥♥Favourite♥♥"
+                header_zzim.text= "하트뿅뿅 찜 되었습니다."
                 header_zzim.setTextColor(Color.BLUE)
 
 
@@ -68,16 +76,22 @@ class MarketInfoActivity : AppCompatActivity() {
                     .document(FirebaseUtils.getUid())
                     .update(intent.getStringExtra("title"), true)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this,"Failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "실패", Toast.LENGTH_LONG).show()
+
                     }
+
             }
 
 
 
+
+
+
         }
+
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_area, ContentFragment())
@@ -117,6 +131,7 @@ class MarketInfoActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_area, ReviewFragment())
                 .commit()
+
 
         }
 

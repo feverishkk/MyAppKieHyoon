@@ -8,15 +8,14 @@ import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 
-class ViewPageAdapter(private val context: Context) : PagerAdapter() {
+class ViewPagerAdapter(private val context : Context) : PagerAdapter(){
 
     private var layoutInflater : LayoutInflater? = null
 
     val Image = arrayOf(
         R.drawable.ai,
-        R.drawable.php,
-        R.drawable.css
-
+        R.drawable.css,
+        R.drawable.html
     )
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -42,11 +41,14 @@ class ViewPageAdapter(private val context: Context) : PagerAdapter() {
         return v
     }
 
+
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
 
         val vp = container as ViewPager
-        val v = `object` as View
+        val v =`object` as View
         vp.removeView(v)
+
     }
+
 
 }

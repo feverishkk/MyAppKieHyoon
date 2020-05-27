@@ -22,9 +22,10 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragmentz
 
         val view : View = inflater.inflate(R.layout.fragment_first, container, false)
+
 
         val list_array = arrayListOf<ContentsListModel>(
 
@@ -37,10 +38,15 @@ class FirstFragment : Fragment() {
             ContentsListModel(R.drawable.list7, "Lang7", 1, "d"),
             ContentsListModel(R.drawable.list8, "Lang8", 1, "d"),
             ContentsListModel(R.drawable.list9, "Lang9", 1, "d")
+
         )
+
 
         val list_adapter = FirstFragAdapter(requireContext(), list_array)
         view.listview_first_fragment.adapter = list_adapter
+
+
+
 
 
         FirebaseUtils.db
@@ -49,11 +55,13 @@ class FirstFragment : Fragment() {
             .get()
             .addOnSuccessListener { documentSnapshot ->
 
-                if (documentSnapshot.exists() == true) {
+                if (documentSnapshot.exists() == true){
                     //Data 필드가 있을 때
+
                 } else {
-                    //Data 필드가 없을 때
-                    val korean = hashMapOf(
+                    //Data 필드 없을 때
+
+                    val lecture = hashMapOf(
                         "Lang1" to "",
                         "Lang2" to "",
                         "Lang3" to "",
@@ -65,21 +73,27 @@ class FirstFragment : Fragment() {
                         "Lang9" to ""
 
                     )
+
                     FirebaseUtils.db
                         .collection("zzim")
                         .document(FirebaseUtils.getUid())
-                        .set(korean)
+                        .set(lecture)
                         .addOnSuccessListener {  }
                         .addOnFailureListener {  }
+
                 }
+
             }
+            .addOnFailureListener {  }
 
 
-        view.listview_first_fragment.setOnItemClickListener{ adapterView, view, i, l ->
+
+        view.listview_first_fragment.setOnItemClickListener { adapterView, view, i, l ->
 
             val intent = Intent(requireContext(), MarketInfoActivity::class.java)
-            intent.putExtra("title",list_array.get(i).title)
+            intent.putExtra("title", list_array.get(i).title)
             startActivity(intent)
+
         }
 
         return view

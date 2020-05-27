@@ -14,7 +14,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="100dp"
-        android:hint="E-mail"
+        android:hint="이메일"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
@@ -25,12 +25,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="비밀번호"
         android:layout_height="60dp"/>
 
     <Button
         android:id="@+id/join_login_button"
-        android:text="Register"
+        android:text="회원가입"
         android:textColor="#ffffff"
         android:textSize="15dp"
         android:layout_width="match_parent"
@@ -50,6 +50,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="#92CFBF"
-        android:text="Google Login"/>
+        android:text="구글 로그인"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

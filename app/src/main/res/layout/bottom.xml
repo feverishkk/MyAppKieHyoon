@@ -58,28 +58,28 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="Home"/>
+                    android:text="홈"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="Favourite"/>
+                    android:text="찜한강의"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="Location"/>
+                    android:text="구매내역"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="Account"/>
+                    android:text="My코민"/>
 
         </LinearLayout>
 

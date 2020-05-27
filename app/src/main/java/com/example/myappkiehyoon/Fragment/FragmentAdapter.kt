@@ -4,9 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
-    // 화면에서 넘어가는 부분 First one, Second one, Third one 으로...
+class FragmentAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         return when(position) {
             0 -> {
@@ -14,12 +12,15 @@ class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
             1 -> {
                 SecondFragment()
-            }else -> {
+            }
+            else -> {
                 return ThirdFragment()
             }
         }
     }
+
     override fun getCount(): Int {
-        return 3 // 넘어가는 숫자의 화면
+        return 3 // 넘어가는 페이지 수
     }
+
 }

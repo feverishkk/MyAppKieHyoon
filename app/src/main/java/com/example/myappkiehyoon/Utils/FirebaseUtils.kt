@@ -3,17 +3,19 @@ package com.example.myappkiehyoon.Utils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class FirebaseUtils  {
+class FirebaseUtils{
+
 
     companion object {
 
-        private var auth : FirebaseAuth = FirebaseAuth.getInstance()
-        var db : FirebaseFirestore = FirebaseFirestore.getInstance()
+        private var auth = FirebaseAuth.getInstance()
+        var db = FirebaseFirestore.getInstance()
 
         fun getUid() : String {
 
             return auth.currentUser?.uid.toString()
         }
+
     }
 
 }

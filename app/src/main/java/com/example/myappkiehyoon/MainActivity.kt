@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.bottom.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal lateinit var viewPager: ViewPager
+    internal lateinit var viewpager : ViewPager
 
     private lateinit var auth: FirebaseAuth
 
@@ -24,49 +24,50 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
         val img = arrayOf(
             R.drawable.ai,
-            R.drawable.php,
             R.drawable.css,
+            R.drawable.html,
             R.drawable.id,
             R.drawable.jpg,
+            R.drawable.js,
             R.drawable.mp4,
             R.drawable.pdf,
+            R.drawable.php,
             R.drawable.png,
             R.drawable.psd,
-            R.drawable.tiff,
-            R.drawable.html,
-            R.drawable.js
-
+            R.drawable.tiff
         )
+
         val text = arrayOf(
             "ai",
-            "php",
             "css",
+            "html",
             "id",
             "jpg",
+            "js",
             "mp4",
             "pdf",
+            "php",
+            "ai",
             "png",
-            "psd",
-            "tiff",
-            "html",
-            "js"
+            "tiff"
         )
 
         val gridviewAdapter = GridviewAdapter(this, img, text)
         gridview.adapter = gridviewAdapter
-        
-        gridview.setOnItemClickListener {adapterView, view, i, l ->
 
-            val intent = Intent(this, KoreanActivity::class.java)
+        gridview.setOnItemClickListener { adapterView, view, i, l ->
+
+            val intent = Intent(this, LectureActivity::class.java)
             startActivity(intent)
+
         }
 
+        viewpager = findViewById(R.id.viewpager) as ViewPager
 
-        viewPager = findViewById(R.id.viewpager) as ViewPager
-
-        val adapter = ViewPageAdapter(this)
+        val adapter = ViewPagerAdapter(this)
         viewpager.adapter = adapter
 
 
@@ -79,10 +80,14 @@ class MainActivity : AppCompatActivity() {
 
         my_page.setOnClickListener {
 
-            if(auth.currentUser == null) {
+
+            if(auth.currentUser == null){
+
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
+
             } else {
+
                 val intent = Intent(this, AccountActivity::class.java)
                 startActivity(intent)
 
@@ -90,6 +95,8 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+
 
     }
 }
