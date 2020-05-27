@@ -23,6 +23,7 @@ class ContentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         val view : View = inflater.inflate(R.layout.fragment_content, container, false)
 
         list1.add("a")
@@ -38,7 +39,6 @@ class ContentFragment : Fragment() {
 
 
         return view
-
     }
 
 

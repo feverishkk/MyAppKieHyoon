@@ -15,7 +15,7 @@ class WriteActivity : AppCompatActivity() {
 
     private lateinit var rating_num : String
 
-    private lateinit var nickname: String
+    private lateinit var nickname : String
 
     private lateinit var auth : FirebaseAuth
 
@@ -27,37 +27,50 @@ class WriteActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
+        //ratring
+
         rating_area.setOnRatingBarChangeListener { ratingBar, fl, b ->
             rating_num = fl.toString()
-
         }
+
+        //nickname 받아오기
 
         val docRef = db.collection("users").document(auth.currentUser?.uid.toString())
 
         docRef.get().addOnSuccessListener { documentSnapshot ->
 
             nickname = documentSnapshot.get("nickname") as String
+
         }
+
 
         writing_button.setOnClickListener {
 
+
             val form = hashMapOf(
 
-                "test" to text_input_area.text.toString(),
-                "writing" to nickname,
+                "text" to text_input_area.text.toString(),
+                "writer" to nickname,
                 "rating" to rating_num
+
             )
 
             db.collection("reviews")
                 .add(form)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
 
                     finish()
+
                 }
-                .addOnFailureListener { Toast.makeText(this, "Failure", Toast.LENGTH_LONG).show() }
+                .addOnFailureListener { Toast.makeText(this, "실패", Toast.LENGTH_LONG).show() }
+
+
         }
+
+
     }
 }
