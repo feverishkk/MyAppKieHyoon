@@ -6,16 +6,24 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import androidx.viewpager.widget.ViewPager
+import com.example.myappkiehyoon.Fragment.Auth.AccountActivity
+import com.example.myappkiehyoon.Fragment.Auth.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom.*
 
 class MainActivity : AppCompatActivity() {
 
     internal lateinit var viewPager: ViewPager
 
+    private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        auth = FirebaseAuth.getInstance()
 
         val img = arrayOf(
             R.drawable.ai,
@@ -61,5 +69,20 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ViewPageAdapter(this)
         viewPager.adapter = adapter
+
+        my_page.setOnClickListener {
+
+            if(auth.currentUser == null) {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, AccountActivity::class.java)
+                startActivity(intent)
+
+            }
+
+
+        }
+
     }
 }
