@@ -27,14 +27,15 @@ class FirstFragment : Fragment() {
 
         val list_array = arrayListOf<ContentsListModel>(
 
-            ContentsListModel("s", "a", 1, "d"),
-            ContentsListModel("u", "r", 1, "d"),
-            ContentsListModel("z", "a", 1, "d"),
-            ContentsListModel("y", "n", 1, "d"),
-            ContentsListModel("y", "g", 1, "d"),
-            ContentsListModel("a", "h", 1, "d"),
-            ContentsListModel("s", "a", 1, "d"),
-            ContentsListModel("s", "e", 1, "d")
+            ContentsListModel(R.drawable.list1, "Lang1", 1, "d"),
+            ContentsListModel(R.drawable.list2, "Lang2", 1, "d"),
+            ContentsListModel(R.drawable.list3, "Lang3", 1, "d"),
+            ContentsListModel(R.drawable.list4, "Lang4", 1, "d"),
+            ContentsListModel(R.drawable.list5, "Lang5", 1, "d"),
+            ContentsListModel(R.drawable.list6, "Lang6", 1, "d"),
+            ContentsListModel(R.drawable.list7, "Lang7", 1, "d"),
+            ContentsListModel(R.drawable.list8, "Lang8", 1, "d"),
+            ContentsListModel(R.drawable.list9, "Lang9", 1, "d")
         )
 
         val list_adapter = FirstFragAdapter(requireContext(), list_array)

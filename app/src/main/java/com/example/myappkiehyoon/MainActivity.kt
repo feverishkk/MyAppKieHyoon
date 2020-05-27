@@ -3,11 +3,9 @@ package com.example.myappkiehyoon
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import androidx.viewpager.widget.ViewPager
-import com.example.myappkiehyoon.Fragment.Auth.AccountActivity
-import com.example.myappkiehyoon.Fragment.Auth.LoginActivity
+import com.example.myappkiehyoon.Auth.AccountActivity
+import com.example.myappkiehyoon.Auth.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom.*

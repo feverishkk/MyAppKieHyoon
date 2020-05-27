@@ -1,4 +1,4 @@
-package com.example.myappkiehyoon.Fragment.Auth
+package com.example.myappkiehyoon.Auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

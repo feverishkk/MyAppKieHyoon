@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import com.example.myappkiehyoon.R
+import com.example.myappkiehyoon.Utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_market_info.*
@@ -11,12 +12,15 @@ import java.lang.reflect.TypeVariable
 
 class MarketInfoActivity : AppCompatActivity() {
 
-    private val auth = FirebaseAuth.getInstance()
-    private val db = FirebaseFirestore.getInstance()
+    private val auth : FirebaseAuth = FirebaseAuth.getInstance()
+    private val db   : FirebaseFirestore =  FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_market_info)
+
+        FirebaseUtils.getUid()
+        FirebaseUtils.db
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_area, ContentFragment())
