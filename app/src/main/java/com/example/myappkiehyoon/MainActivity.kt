@@ -3,10 +3,10 @@ package com.example.myappkiehyoon
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.example.myappkiehyoon.Auth.AccountActivity
 import com.example.myappkiehyoon.Auth.LoginActivity
+import com.example.myappkiehyoon.Youtube.YoutubeActivity
 import com.example.myappkiehyoon.Zzim.ZzimActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         my_page.setOnClickListener {
 
 
-            if(auth.currentUser == null){
+            if (auth.currentUser == null) {
 
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
@@ -95,17 +95,25 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-
         }
 
-            my_location.setOnClickListener{
+        my_location.setOnClickListener {
 
             val intent = Intent(this, MapsActivity::class.java)
             // start your next activity
             startActivity(intent)
 
-            }
+        }
+
+        sample.setOnClickListener{
+
+            val intent = Intent(this, YoutubeActivity::class.java)
+            // start your next activity
+            startActivity(intent)
+
+        }
 
 
     }
+
 }

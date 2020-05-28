@@ -12,13 +12,15 @@
             android:weightSum="4"
             android:layout_height="50dp">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/bottom_1"
-                    />
+            <ImageView
+                android:id="@+id/sample"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:src="@drawable/bottom_1"
+                />
+
 
                 <ImageView
                     android:id="@+id/zzim_icon"
@@ -48,6 +50,7 @@
                     />
 
 
+
         </LinearLayout>
 
         <LinearLayout
@@ -60,7 +63,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="Home"/>
+                    android:text="Sample"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -82,6 +85,7 @@
                     android:gravity="center"
                     android:layout_weight="1"
                     android:text="Account"/>
+
 
         </LinearLayout>
 
