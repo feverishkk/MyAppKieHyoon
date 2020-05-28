@@ -9,7 +9,6 @@ import com.example.myappkiehyoon.Auth.AccountActivity
 import com.example.myappkiehyoon.Auth.LoginActivity
 import com.example.myappkiehyoon.Zzim.ZzimActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_location.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom.*
 
@@ -95,25 +94,17 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-        my_location.setOnClickListener {
-
-
-                if(auth.currentUser == null){
-
-                    val intent = Intent(this, LocationActivity::class.java)
-                    startActivity(intent)
-
-                } else {
-
-                    Toast.makeText(this, "fail", Toast.LENGTH_LONG).show()
-
-                }
-
-            }
 
 
         }
 
+            my_location.setOnClickListener{
+
+            val intent = Intent(this, MapsActivity::class.java)
+            // start your next activity
+            startActivity(intent)
+
+            }
 
 
     }
