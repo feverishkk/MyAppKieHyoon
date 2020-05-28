@@ -67,7 +67,7 @@ class ReviewFragment : Fragment() {
 
             if(auth.currentUser == null) {
 
-                Toast.makeText(requireContext(), "회원가입 or 로그인 해주세요", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Plase Register or Login", Toast.LENGTH_LONG).show()
 
             } else{
 

@@ -60,14 +60,14 @@ class WriteActivity : AppCompatActivity() {
             db.collection("reviews")
                 .add(form)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
 
                     finish()
 
                 }
-                .addOnFailureListener { Toast.makeText(this, "실패", Toast.LENGTH_LONG).show() }
+                .addOnFailureListener { Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show() }
 
 
         }

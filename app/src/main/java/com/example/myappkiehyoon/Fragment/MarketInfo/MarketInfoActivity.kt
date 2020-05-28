@@ -33,7 +33,7 @@ class MarketInfoActivity : AppCompatActivity() {
 
                 if(documentSnapshot.get(intent.getStringExtra("title")) == true){
 
-                    header_zzim.text= "하트뿅뿅 찜 되었습니다."
+                    header_zzim.text= "Dib Done"
                     header_zzim.setTextColor(Color.BLUE)
 
                 }
@@ -47,10 +47,10 @@ class MarketInfoActivity : AppCompatActivity() {
 
 
             //이미 찜 되어있을 떄
-            if (header_zzim.text.equals("하트뿅뿅 찜 되었습니다.")){
+            if (header_zzim.text.equals("Dib Done")){
 
 
-                header_zzim.text= "하트뿅뿅 찜"
+                header_zzim.text= "Dib Done"
                 header_zzim.setTextColor(Color.RED)
 
                 FirebaseUtils.db
@@ -58,16 +58,16 @@ class MarketInfoActivity : AppCompatActivity() {
                     .document(FirebaseUtils.getUid())
                     .update(intent.getStringExtra("title"), "")
                     .addOnSuccessListener {
-                        Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this, "실패", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Failure", Toast.LENGTH_LONG).show()
                     }
 
             } else {
                 //이미 찜 되어있지 않을 때
 
-                header_zzim.text= "하트뿅뿅 찜 되었습니다."
+                header_zzim.text= "Dib Done"
                 header_zzim.setTextColor(Color.BLUE)
 
 
@@ -76,10 +76,10 @@ class MarketInfoActivity : AppCompatActivity() {
                     .document(FirebaseUtils.getUid())
                     .update(intent.getStringExtra("title"), true)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener {
-                        Toast.makeText(this, "실패", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show()
 
                     }
 

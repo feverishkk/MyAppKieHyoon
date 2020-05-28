@@ -16,8 +16,7 @@ class LectureActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_korean)
-
-
+        
         val fragmentAdapter =
             FragmentAdapter(supportFragmentManager)
         list_viewpager.adapter = fragmentAdapter

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.myappkiehyoon.R
+import com.example.myappkiehyoon.Zzim.ZzimAdapter
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -19,7 +20,7 @@ class LocationActivity : AppCompatActivity() {
 
       override fun onCreate(savedInstanceState: Bundle?) {
           super.onCreate(savedInstanceState)
-          setContentView(R.layout.bottom)
+          setContentView(R.layout.activity_location)
 
 
             mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment

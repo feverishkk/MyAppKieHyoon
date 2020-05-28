@@ -3,11 +3,13 @@ package com.example.myappkiehyoon
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.example.myappkiehyoon.Auth.AccountActivity
 import com.example.myappkiehyoon.Auth.LoginActivity
 import com.example.myappkiehyoon.Zzim.ZzimActivity
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_location.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom.*
 
@@ -90,6 +92,22 @@ class MainActivity : AppCompatActivity() {
 
                 val intent = Intent(this, AccountActivity::class.java)
                 startActivity(intent)
+
+            }
+
+        my_location.setOnClickListener {
+
+
+                if(auth.currentUser == null){
+
+                    val intent = Intent(this, LocationActivity::class.java)
+                    startActivity(intent)
+
+                } else {
+
+                    Toast.makeText(this, "fail", Toast.LENGTH_LONG).show()
+
+                }
 
             }
 

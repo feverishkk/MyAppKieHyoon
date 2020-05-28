@@ -35,13 +35,13 @@ class JoinInfoActivity : AppCompatActivity() {
                 .document(auth.currentUser?.uid.toString())
                 .set(user)
                 .addOnSuccessListener {
-                    Log.e("JoinInfoActivity", "성공")
+                    Log.e("JoinInfoActivity", "Success")
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
 
                 }
-                .addOnFailureListener { Log.e("JoinInfoActivity", "실패") }
+                .addOnFailureListener { Log.e("JoinInfoActivity", "Failed") }
 
 
 
